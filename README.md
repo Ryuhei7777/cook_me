@@ -30,7 +30,7 @@
 - 実装機能リスト
   https://docs.google.com/spreadsheets/d/1YxAcIkDkmrfCau70rlfYt1T5j11aggfC9f3yWfPuE3U/edit?usp=sharing
 - テーブル定義書
-- https://docs.google.com/spreadsheets/d/1ZxRpktMZgS9zAPYccNM5E6H8jq3ximTTJUKBCfQZGTg/edit?usp=sharing
+  https://docs.google.com/spreadsheets/d/1ZxRpktMZgS9zAPYccNM5E6H8jq3ximTTJUKBCfQZGTg/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
