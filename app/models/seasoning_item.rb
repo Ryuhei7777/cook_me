@@ -1,0 +1,2 @@
+class SeasoningItem < ApplicationRecord
+end
