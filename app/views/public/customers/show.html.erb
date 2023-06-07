@@ -15,15 +15,16 @@
 
   <div class="row justify-content-center" style="margin-top:30px;">
     <div class="col-md-2" style="margin:auto 0; font-size:19px;">ステータス</div>
-    <div class="col-md-2" style="padding-left:0px; font-size:19px;">
+    <div class="col-md-1" style="margin:auto 0; padding-left:0px; font-size:19px;">
       <% if @customer.is_deleted == true %>
         <strong style="color: #808080; font-size: 20px;">無効</strong>
       <% else %>
         <strong style="color:#3cb371; font-size: 20px;">有効</strong>
       <% end %>
     </div>
+    <div class="col-md-1" style="padding-left:0px; padding-left:80px;">
+      <%= link_to "編集する",edit_customers_path,class:"btn btn-success text-light",style:"width:110px; height:40px;" %>
+    </div>
   </div>
-  
-  <%= link_to "編集する",edit_customers_path,class:"btn btn-success text-light",style:"width:110px; height:40px;" %>
 
 </div>
