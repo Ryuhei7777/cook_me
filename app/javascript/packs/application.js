@@ -13,6 +13,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
+import "packs/image.js"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

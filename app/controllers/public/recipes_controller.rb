@@ -3,6 +3,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.new
   end
 
   def create
@@ -16,7 +17,10 @@ class Public::RecipesController < ApplicationController
 
   def update
   end
+  
+  private
 
-  def destroy
+  def recipe_params
+    params.require(:recipe).permit(:customer_id, :title, )
   end
 end

@@ -7,6 +7,6 @@ class Recipe < ApplicationRecord
   has_many :steps
   has_many :seasonings
   has_many :tags
-  belongs_to :customers
+  belongs_to :customer
 
 end

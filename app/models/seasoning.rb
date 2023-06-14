@@ -1,4 +1,4 @@
 class Seasoning < ApplicationRecord
-  belongs_to :recipes
-  belongs_to :seasoning_items
+  belongs_to :recipe
+  belongs_to :seasoning_item
 end
