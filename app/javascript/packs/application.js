@@ -15,6 +15,7 @@ import "../stylesheets/application";
 
 import "packs/image.js"
 import "packs/form_add.js"
+require("@nathanvda/cocoon")
 
 Rails.start()
 Turbolinks.start()

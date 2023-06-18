@@ -1,46 +1,50 @@
-<div class="container" style="margin-top:150px;">
+<div class ="container" style="margin-top:150px;">
   <div class="row justify-content-center">
-    <div class="col-md-6"><b style="font-size:19px;">レシピ投稿</b></div>
+    <div class="col-md-8"><b style="font-size:19px;">レシピ投稿</b></div>
   </div>
+  
   <%= form_with model: @recipe, url:recipes_path,local: true do |f| %>
-  <div class="row justify-content-center" style="margin-top:20px;">
-    <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px;" %></div>
-  　   <div class="col-md-2" style="padding-left:20px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
-  　   <div class="col-md-2" style="padding-left:20px;"></div>
-    </div>
-
-  <div class="row justify-content-center" style="margin-top:20px;">
-    <div class="col-md-3" style="padding-left:0px;">
-      <%= f.label :image do %>
-        <i class="fas fa-camera-retro"></i>
-        <%= f.file_field :image, style: 'display:none' %>
-      <% end %>
-    </div>
-　  <div class="col-md-2" style="padding-left:20px; font-size:17px;"><b>材料リスト</b></div>
-　  <div class="col-md-2" style="padding-left:20px;"></div>
-  </div>
-
-  <div class="row justify-content-center" style="margin-top:0px;">
-    <div class="col-md-3" style="padding-left:0px;">
-      <img id="img_prev" width="280px">
+    <div class="row justify-content-center" style="margin-top:20px;">
+      <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px;" %></div>
+  　   <div class="col-md-5" style="padding-left:20px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
+  　   <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
     
-　  <div class="col-md-2" style="padding-left:20px; font-size:17px;">
+    <div class="row justify-content-center" style="margin-top:20px;">
+      <div class="col-md-3" style="padding-left:60px;">
+        <%= f.label :image do %>
+          <i class="fas fa-camera-retro"></i>
+          <%= f.file_field :image, style: 'display:none' %>
+        <% end %>
+      </div>
+　    <div class="col-md-5" style="padding-left:35px; font-size:17px;"><b>材料リスト</b></div>
+　    <div class="col-md-4" style="padding-left:20px;"></div>
+    </div>
+    
+    <div class="row justify-content-center" style="margin-top:0px;">
+      <div class="col-md-3" style="padding-left:45px;">
+        <img id="img_prev" width="280px">
+      </div>
+      
+　    <div class="col-md-5" style="padding-left:20px; font-size:17px;">
+　      <div id='materials'>
+          <%= f.fields_for :materials do |material| %>
+            <%= render 'material_fields', :f => material %>
+          <% end %>
+          <div class='row justify-content-center' style="margin-top:20px;">
+            <%= link_to_add_association "材料の追加", f, :materials ,class:"btn btn-success text-light",style:"width:110px; height:40px;"%>
+          </div>
+        </div>
+　    </div>
 　    
-      <input class="btn btn-warning text-light" style="width:130px; height:40px;" type="button" value="材料の追加" id="btn_add">
+　    <div class="col-md-4" style="padding-left:20px;">
+　    </div>
 　  </div>
 　  
-　  <div class="col-md-2" style="padding-left:20px;">
-
-　  </div>
-  </div>
-  
-  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
-    <div>
+    <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
       <%= f.submit "レシピ投稿",class:"btn btn-success text-light",style:"width:150px; height:40px;"%>
     </div>
-  </div>
   <% end %>
-  
+
 </div>
 

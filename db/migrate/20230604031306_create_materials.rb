@@ -3,7 +3,7 @@ class CreateMaterials < ActiveRecord::Migration[6.1]
     create_table :materials do |t|
       t.integer :recipe_id,null: false
       t.string :name,null: false
-      t.integer :quantity,null: false
+      t.string :quantity,null: false
       t.timestamps
     end
   end
