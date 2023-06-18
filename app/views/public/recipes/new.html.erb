@@ -8,7 +8,7 @@
   　   <div class="col-md-2" style="padding-left:20px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
   　   <div class="col-md-2" style="padding-left:20px;"></div>
     </div>
- 
+
   <div class="row justify-content-center" style="margin-top:20px;">
     <div class="col-md-3" style="padding-left:0px;">
       <%= f.label :image do %>
@@ -19,18 +19,28 @@
 　  <div class="col-md-2" style="padding-left:20px; font-size:17px;"><b>材料リスト</b></div>
 　  <div class="col-md-2" style="padding-left:20px;"></div>
   </div>
- 
+
   <div class="row justify-content-center" style="margin-top:0px;">
     <div class="col-md-3" style="padding-left:0px;">
       <img id="img_prev" width="280px">
     </div>
+    
 　  <div class="col-md-2" style="padding-left:20px; font-size:17px;">
 　    
+      <input class="btn btn-warning text-light" style="width:130px; height:40px;" type="button" value="材料の追加" id="btn_add">
 　  </div>
+　  
 　  <div class="col-md-2" style="padding-left:20px;">
-　    
+
 　  </div>
   </div>
+  
+  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
+    <div>
+      <%= f.submit "レシピ投稿",class:"btn btn-success text-light",style:"width:150px; height:40px;"%>
+    </div>
+  </div>
   <% end %>
+  
 </div>
 

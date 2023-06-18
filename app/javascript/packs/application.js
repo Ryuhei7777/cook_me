@@ -11,9 +11,10 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
 
 import "packs/image.js"
+import "packs/form_add.js"
 
 Rails.start()
 Turbolinks.start()

@@ -4,9 +4,15 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipes = Recipe.all
   end
 
   def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.customer_id = current_customer.id
+    @recipe.save
+    
+    
   end
 
   def show
@@ -21,6 +27,6 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:customer_id, :title, )
+    params.require(:recipe).permit(:title, :quantity, :image )
   end
 end
