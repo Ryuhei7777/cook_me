@@ -11,18 +11,18 @@
     </div>
     
     <div class="row justify-content-center" style="margin-top:20px;">
-      <div class="col-md-3" style="padding-left:60px;">
+      <div class="col-md-3" style="padding-left:0px; witdth:"280px;">
         <%= f.label :image do %>
           <i class="fas fa-camera-retro"></i>
           <%= f.file_field :image, style: 'display:none' %>
         <% end %>
       </div>
-　    <div class="col-md-5" style="padding-left:35px; font-size:17px;"><b>材料リスト</b></div>
+　    <div class="col-md-5" style="padding-left:20px; font-size:17px;"><b>材料リスト</b></div>
 　    <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
     
     <div class="row justify-content-center" style="margin-top:0px;">
-      <div class="col-md-3" style="padding-left:45px;">
+      <div class="col-md-3" style="padding-left:10px;">
         <img id="img_prev" width="280px">
       </div>
       
@@ -45,6 +45,4 @@
       <%= f.submit "レシピ投稿",class:"btn btn-success text-light",style:"width:150px; height:40px;"%>
     </div>
   <% end %>
-
 </div>
-
