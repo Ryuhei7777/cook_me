@@ -6,7 +6,7 @@
   <%= form_with model: @recipe, url:recipes_path,local: true do |f| %>
     <div class="row justify-content-center" style="margin-top:20px;">
       <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px;" %></div>
-  　   <div class="col-md-5" style="padding-left:20px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
+  　   <div class="col-md-5" style="padding-left:5px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
   　   <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
     
@@ -17,27 +17,35 @@
           <%= f.file_field :image, style: 'display:none' %>
         <% end %>
       </div>
-　    <div class="col-md-5" style="padding-left:20px; font-size:17px;"><b>材料リスト</b></div>
+　    <div class="col-md-5" style="padding-left:0px; margin-left:0px; font-size:17px;"><b>材料リスト</b></div>
 　    <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
     
-    <div class="row justify-content-center" style="margin-top:0px;">
+    <div class="row justify-content-center" style="margin-top:0px; padding-left:150px;">
       <div class="col-md-3" style="padding-left:10px;">
         <img id="img_prev" width="280px">
       </div>
       
-　    <div class="col-md-5" style="padding-left:20px; font-size:17px;">
+　    <div class="col-md-4" style="padding-left:45px; font-size:17px; justify-content:start;">
 　      <div id='materials'>
           <%= f.fields_for :materials do |material| %>
             <%= render 'material_fields', :f => material %>
           <% end %>
           <div class='row justify-content-center' style="margin-top:20px;">
-            <%= link_to_add_association "材料の追加", f, :materials ,class:"btn btn-success text-light",style:"width:110px; height:40px;"%>
+            <%= link_to_add_association "材料の追加", f, :materials ,class:"btn btn-success text-light",style:"width:170px; height:40px;"%>
           </div>
         </div>
 　    </div>
 　    
-　    <div class="col-md-4" style="padding-left:20px;">
+　    <div class="col-md-4" style="padding-left:20px; font-size:17px; justify-content:start;">
+　      <div id='seasonings'>
+          <%= f.fields_for :seasonings do |seasoning| %>
+            <%= render 'seasoning_fields', :f => seasoning %>
+          <% end %>
+          <div class='row justify-content-center' style="margin-top:20px;">
+            <%= link_to_add_association "調味料の追加", f, :seasonings ,class:"btn btn-success text-light",style:"width:170px; height:40px;"%>
+          </div>
+        </div>
 　    </div>
 　  </div>
 　  
