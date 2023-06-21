@@ -98,15 +98,8 @@ ActiveRecord::Schema.define(version: 2023_06_04_033651) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "seasoning_items", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "seasonings", force: :cascade do |t|
     t.integer "recipe_id", null: false
-    t.integer "seasoning_item_id", null: false
     t.string "name", null: false
     t.string "quantity", null: false
     t.datetime "created_at", precision: 6, null: false

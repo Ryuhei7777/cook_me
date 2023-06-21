@@ -2,30 +2,30 @@
   <div class="row justify-content-center">
     <div class="col-md-8"><b style="font-size:19px;">レシピ投稿</b></div>
   </div>
-  
+
   <%= form_with model: @recipe, url:recipes_path,local: true do |f| %>
     <div class="row justify-content-center" style="margin-top:20px;">
       <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px;" %></div>
   　   <div class="col-md-5" style="padding-left:5px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
   　   <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
-    
+
     <div class="row justify-content-center" style="margin-top:20px;">
       <div class="col-md-3" style="padding-left:0px; witdth:"280px;">
         <%= f.label :image do %>
-          <i class="fas fa-camera-retro"></i>
+          <i class="fas fa-camera-retro fa-2x"></i>
           <%= f.file_field :image, style: 'display:none' %>
         <% end %>
       </div>
-　    <div class="col-md-5" style="padding-left:0px; margin-left:0px; font-size:17px;"><b>材料リスト</b></div>
+　    <div class="col-md-5" style="padding-left:0px; margin-left:0px; font-size:23px;"><b>材料リスト</b></div>
 　    <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
-    
+
     <div class="row justify-content-center" style="margin-top:0px; padding-left:150px;">
       <div class="col-md-3" style="padding-left:10px;">
         <img id="img_prev" width="280px">
       </div>
-      
+
 　    <div class="col-md-4" style="padding-left:45px; font-size:17px; justify-content:start;">
 　      <div id='materials'>
           <%= f.fields_for :materials do |material| %>
@@ -36,7 +36,7 @@
           </div>
         </div>
 　    </div>
-　    
+
 　    <div class="col-md-4" style="padding-left:20px; font-size:17px; justify-content:start;">
 　      <div id='seasonings'>
           <%= f.fields_for :seasonings do |seasoning| %>
@@ -46,9 +46,10 @@
             <%= link_to_add_association "調味料の追加", f, :seasonings ,class:"btn btn-success text-light",style:"width:170px; height:40px;"%>
           </div>
         </div>
+
 　    </div>
 　  </div>
-　  
+
     <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
       <%= f.submit "レシピ投稿",class:"btn btn-success text-light",style:"width:150px; height:40px;"%>
     </div>
