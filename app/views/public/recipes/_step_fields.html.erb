@@ -1,0 +1,13 @@
+<div class="nested-fields">
+    <div class='nested-fields'>
+      <div class="row" style="margin-top:10px; padding-left:20px;">
+        <div class="col-md-8" style="padding-left:0px; margin-right:70px; font-size:17px;">
+          <%= f.text_field :content ,placeholder:"手順を記入",style:"width:450px; height:40px;" %>
+        </div>
+
+        <div class="col-md-1" style="padding-left:0px;  font-size:17px;">
+          <%= link_to_remove_association "削除", f ,class:"btn btn-danger text-light",style:"width:60px; height:40px;" %>
+        </div>
+      </div>
+    </div>
+</div>
