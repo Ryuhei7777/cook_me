@@ -10,5 +10,7 @@ $(document).on("turbolinks:load", function(){
   }
   $("#recipe_image").change(function(){
     readURL(this);
+    
+     $(".default_recipe_image").css('display', 'none');
   });
 });
