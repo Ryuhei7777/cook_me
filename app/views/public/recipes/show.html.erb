@@ -2,4 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-md-8"><b style="font-size:25px;">レシピ詳細</b></div>
   </div>
+
+  <div class="row justify-content-center" style="margin-top:20px;">
+    <div class="col-md-5" style="padding-left:0px; ">
+      <div style="font-size:30px;"><b><%= @recipe.title %></b></div>
+      <div><b style="margin-left:200px;">by <%= @recipe.customer.first_name %> <%= @recipe.customer.last_name %></b></div>
+    </div>
+    <div class="col-md-4"><%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px; margin-left:300px;" %>
+  
+   
 </div>
