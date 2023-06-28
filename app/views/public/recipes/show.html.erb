@@ -4,11 +4,24 @@
   </div>
 
   <div class="row justify-content-center" style="margin-top:20px;">
-    <div class="col-md-5" style="padding-left:0px; ">
-      <div style="font-size:30px;"><b><%= @recipe.title %></b></div>
-      <div><b style="margin-left:200px;">by <%= @recipe.customer.first_name %> <%= @recipe.customer.last_name %></b></div>
+    <div class="col-md-4" style="padding-left:0px; ">
+      <div style="font-size:30px; text-align: center;"><b><%= @recipe.title %></b></div>
+      <div style="text-align: end;"><b>by <%= @recipe.customer.first_name %> <%= @recipe.customer.last_name %></b></div>
     </div>
-    <div class="col-md-4"><%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px; margin-left:300px;" %>
-  
-   
+
+    <div class="col-md-4" style="padding-left:0px; margin-left:0px; font-size:23px;"><b>材料リスト</b></div>
+
+    <div class="col-md-3">
+      <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;" %>
+    </div>
+
+  </div>
+
+   <div class="row justify-content-center" style="margin-top:20px;">
+      <div class="col-md-4" style="text-align: end;">
+        <%= image_tag @recipe.image, size: "280x280" %>
+      </div>
+      <div class="col-md-4" style="padding-left:20px;"></div>
+　    <div class="col-md-3" style="padding-left:20px;"></div>
+   </div>
 </div>
