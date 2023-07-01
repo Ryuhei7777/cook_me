@@ -14,16 +14,42 @@
     </div>
   </div>
 
-   <div class="row justify-content-center" style="margin-top:20px;">
-      <div class="col-md-4" style="text-align: end;">
-        <%= image_tag @recipe.image, size: "280x280" %>
+  <div class="row justify-content-center" style="margin-top:20px;">
+    <div class="col-md-4" style="text-align: end;">
+      <%= image_tag @recipe.image, size: "280x280" %>
+      <div>
+        <span style="padding-right:110px;"><i class="fas fa-tag fa-2x"></i><b style="font-size:25px;">タグ</b></span>
+        <span><%= link_to "ﾌﾞｯｸﾏｰｸ",bookmarks_path,method: :post,class:"btn btn-warning text-light",style:"width:90px; height:35px;" %></span>
       </div>
-
-      <div class="col-md-4" style="padding-left:20px;">
-        <% @recipe.materials.each do |material|%>
-          <div style="font-size:23px;"><%= material.name %><%= material.quantity, style: "padding-left:50px;" %></div>
+      
+      <div class="pull-right" style="width:300px; font-size:20px; word-break: keep-all; text-align: left; margin-left:70px;">
+        <% @recipe.tags.each do |tag|%>
+          <%= tag.name %>
         <% end %>
       </div>
-　    <div class="col-md-3" style="padding-left:20px;"></div>
-   </div>
+    </div>
+    
+    <div class="col-md-4" style="padding-left:20px;">
+      <% @recipe.materials.each do |material|%>
+        <div style="font-size:23px;">
+          <span style="display: inline-block; width: 210px;"><%= material.name %></span>
+          <span style="display: inline-block; width: 120px;"><%= material.quantity %></span>
+        </div>
+      <% end %>
+    </div>
+    
+　   <div class="col-md-3" style="padding-left:20px;">
+　     <% @recipe.seasonings.each do |seasoning|%>
+        <div style="font-size:23px;">
+          <span style="display: inline-block; width: 120px;"><%= seasoning.name %></span>
+          <span style="display: inline-block; width: 120px;"><%= seasoning.quantity %></span>
+        </div>
+      <% end %>
+　   </div>
+  </div>
+  
+  <div>
+    
+  </div>
+
 </div>
