@@ -20,7 +20,7 @@
       <div>
         <span style="padding-right:110px;"><i class="fas fa-tag fa-2x"></i><b style="font-size:25px;">タグ</b></span>
         <span>
-          <%= link_to "ﾌﾞｯｸﾏｰｸ",bookmarks_path,method: :post,class:"btn btn-warning text-light",style:"width:90px; height:35px;" %>
+          <%= link_to "ﾌﾞｯｸﾏｰｸ",bookmarks_path(recipe_id: @recipe.id),method: :post,class:"btn btn-warning text-light",style:"width:90px; height:35px;" %>
         </span>
       </div>
 
@@ -73,12 +73,16 @@
         <% end %>
       </div>
 
-      <% @recipe.comments.each do |comment|%>
+      <% @comments.each do |comment|%>
         <div style="font-size:22px;">
           <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
           <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
         </div>
       <% end %>
+      <div style="margin-left:120px; ">
+        <%= paginate @comments %>
+      </div>
+      
     </div>
   </div>
 
