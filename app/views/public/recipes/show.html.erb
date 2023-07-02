@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:23px;"><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
     <div class="col-md-3 text-right" >
-      <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;" %>
+      <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;"%>
     </div>
   </div>
 
@@ -19,16 +19,18 @@
       <%= image_tag @recipe.image, size: "280x280" %>
       <div>
         <span style="padding-right:110px;"><i class="fas fa-tag fa-2x"></i><b style="font-size:25px;">タグ</b></span>
-        <span><%= link_to "ﾌﾞｯｸﾏｰｸ",bookmarks_path,method: :post,class:"btn btn-warning text-light",style:"width:90px; height:35px;" %></span>
+        <span>
+          <%= link_to "ﾌﾞｯｸﾏｰｸ",bookmarks_path,method: :post,class:"btn btn-warning text-light",style:"width:90px; height:35px;" %>
+        </span>
       </div>
-      
+
       <div class="pull-right" style="width:300px; font-size:20px; word-break: keep-all; text-align: left; margin-left:70px;">
         <% @recipe.tags.each do |tag|%>
           <%= tag.name %>
         <% end %>
       </div>
     </div>
-    
+
     <div class="col-md-4" style="padding-left:20px;">
       <% @recipe.materials.each do |material|%>
         <div style="font-size:23px;">
@@ -37,7 +39,7 @@
         </div>
       <% end %>
     </div>
-    
+
 　   <div class="col-md-3" style="padding-left:20px;">
 　     <% @recipe.seasonings.each do |seasoning|%>
         <div style="font-size:23px;">
@@ -47,9 +49,37 @@
       <% end %>
 　   </div>
   </div>
-  
-  <div>
-    
+
+  <div class="row justify-content-center" style="margin-top:20px; margin-left:5px;">
+    <div class="col-md-6" style="font-size:27px;"><b>作り方</b></div>
+    <div class="col-md-4" style="font-size:20px;"><b style="font-size:27px;">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b></div>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top:20px; margin-left:90px;">
+    <div class="col-md-6" style="font-size:20px;">
+      <% @recipe.steps.each do |step|%>
+        <div style="font-size:22px;">
+          <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px;"><%= step.content %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6" style="font-size:20px; padding-left:40px;">
+      <div>
+        <%= form_with model: @comment do |f| %>
+          <%= f.text_field :content,style:"width:330px; height:40px;" %>
+          <%= f.submit "投稿",class:"btn btn-success text-light",style:"width:70px; height:40px;" %>
+          <%= f.hidden_field :recipe_id, :value =>  @recipe.id %>
+        <% end %>
+      </div>
+
+      <% @recipe.comments.each do |comment|%>
+        <div style="font-size:22px;">
+          <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
+          <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>

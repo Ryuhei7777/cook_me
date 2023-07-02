@@ -4,19 +4,17 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
     @recipe.save
-
-
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
