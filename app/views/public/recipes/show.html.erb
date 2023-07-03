@@ -1,6 +1,6 @@
 <div class ="container" style="margin-top:150px;">
   <div class="row justify-content-center">
-    <div class="col-md-8"><b style="font-size:25px;">レシピ詳細</b></div>
+    <div class="col-md-10"><b style="font-size:25px;">レシピ詳細</b></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:20px;">
@@ -74,15 +74,15 @@
       </div>
 
       <% @comments.each do |comment|%>
-        <div style="font-size:22px;">
-          <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
-          <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
-        </div>
+      <div style="font-size:22px;">
+        <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
+        <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
+      </div>
       <% end %>
-      <div style="margin-left:120px; ">
+      <div style="margin-top:20px; margin-left:25%; font-size:25px;">
         <%= paginate @comments %>
       </div>
-      
+
     </div>
   </div>
 

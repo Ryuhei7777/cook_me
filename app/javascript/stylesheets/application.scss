@@ -1,1 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
+
+.recipe-card .card-img-top {
+  height: 10vw;
+  object-fit: cover;
+}

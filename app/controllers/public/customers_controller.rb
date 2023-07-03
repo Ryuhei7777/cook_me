@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(current_customer.id)
+    @recipe = Recipe.where(customer_id: @customer).order(created_at: :desc).page(params[:page]).per(4)
   end
 
   def edit
