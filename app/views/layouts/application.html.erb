@@ -13,34 +13,88 @@
 
   <body>
     <%# ヘッダー%>
-    <nav class="navbar navbar-light" style="background-color: #f0f8ff;">
-      <div class="container">
-        <a class="navbar-brand" href="#">
+
+    <nav class=" navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+      <div class="container-fluid">
+        <%= link_to root_path ,class:"navbar-brand" do %>
           <%= image_tag 'image1.jpg', size: "200x200" %>
-        </a>
-        
+        <% end %>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <% if customer_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <%= link_to  customers_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">マイページ</button>
+              <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <%= link_to  recipes_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">レシピ一覧</button>
+              <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <%= link_to bookmarks_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:200px; height:50px; font-size:20px; margin-right:20px;">ブックマーク一覧</button>
+              <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">ログアウト</button>
+              <% end %>
+            </li>
+
+            <% elsif admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to  admin_customers_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">会員一覧</button>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to  admin_root_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">レシピ一覧</button>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">ログアウト</button>
+              <% end %>
+            </li>
+
+            <% else %>
+            <li class="nav-item">
+              <%= link_to  recipes_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:150px; height:50px; font-size:20px; margin-right:20px;">レシピ一覧</button>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_customer_registration_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:120px; height:50px; font-size:20px; margin-right:20px;">新規登録</button>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_customer_session_path, class:"nav-link" do %>
+                <button  class="btn btn-outline-dark" style="width:120px; height:50px; font-size:20px; margin-right:20px;">ログイン</button>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
 
     <%= yield %>
   </body>
