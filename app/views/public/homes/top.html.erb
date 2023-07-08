@@ -1,19 +1,19 @@
 <div class ="container" style="margin-top:150px;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-      <p style="font-size:45px;"><strong>ようこそ! cook_me(クックミー)へ</strong></p>
-      <strong style="font-size:22px;">
+      <p style="font-size:45px;"><strong>ようこそ! CookMe(クックミー)へ</strong></p>
+      <strong style="font-size:22px; text-align: center;">
         このコミュニティサイトは世界の共通の文化である「食」を通じて、</br>
-        全政界の会員様と繋がり多種多様な料理レシピを気軽に共有できるサイトを目指しています。</br>
+        世界の会員様と繋がり多種多様な料理レシピを気軽に共有できるサイトを目指しています。</br>
         レシピ投稿・編集、コメント投稿、ブックマーク登録は新規登録及びログインが必要になります。
       </strong>
     </div>
   </div>
-  
+
   <div class="row justify-content-center" style="margin-top:50px;">
-    <div class="col-md-10"><b style="font-size:25px;">新着情報</b></div>
+    <div class="col-md-11"><b style="font-size:25px;">新着情報</b></div>
   </div>
-  
+
   <div class="row justify-content-start">
     <% @recipe.each do |recipe| %>
     <div class="col-md-3" style="margin-top:20px;">
@@ -37,7 +37,7 @@
     </div>
     <% end %>
   </div>
-  
+
   <div style="margin-top:50px; margin-left:75%; font-size:25px;">
     <%= link_to"全ての商品を見る >",recipes_path %>
   </div>
