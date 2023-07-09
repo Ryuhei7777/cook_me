@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Recipe.ransack(params[:q])
+    @result = params[:q]&.values&.reject(&:blank?)
+    @check = params[:q]
   end
 
   protected
