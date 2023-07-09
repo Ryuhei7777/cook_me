@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get 'searches/index'
+  end
+  namespace :public do
+    get 'searches/index'
+  end
+  namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
@@ -14,7 +20,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
   end
-
+  
+  namespace :admin do
+    resources :searches, only: [:index]
+  end
+  
   scope module: :public do
     resources :bookmarks, only: [:index, :create, :destroy]
   end
@@ -59,6 +69,10 @@ Rails.application.routes.draw do
   end
 
   root to: 'public/homes#top'
+  
+  scope module: :public do
+    resources :searches, only: [:index]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :customers,skip: [:passwords], controllers: {

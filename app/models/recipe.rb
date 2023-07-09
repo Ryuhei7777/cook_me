@@ -13,4 +13,13 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :seasonings, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :tags, allow_destroy: true, reject_if: :all_blank
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["title"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["tags"]
+  end
+
 end
