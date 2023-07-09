@@ -1,2 +1,35 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<div class ="container">
+  <div class="row justify-content-center">
+    <div class="col-md-11 d-flex align-items-center"><b style="font-size:30px;">会員一覧</b></div>
+  </div>
+  <div class="row justify-content-start" style="margin-top:35px;">
+    <table class="table" style="font-size:28px;">
+      <tr　class="border-top">
+        <th bgcolor="#f5f5f5", style="width:10%" class="pl-3">会員ID</th>
+        <th bgcolor="#f5f5f5", style="width:25%" class="pl-3">氏名</th>
+        <th bgcolor="#f5f5f5", style="width:30%" class="pl-3">メールアドレス</th>
+        <th bgcolor="#f5f5f5", style="width:15%" class="pl-3">ステータス</th>
+      </tr>
+    <% @customers.each do |customer| %>
+      <% if customer.is_deleted ==true %>
+      <tr class="border-bottom">
+        <td><%= customer.id %></td>
+        <td><%= link_to (customer.first_name + customer.last_name) , admin_customer_path(customer.id) %></td>
+        <td><%= customer.email %></td>
+        <td><strong style="color: #808080;">退会</strong></td>
+      </tr>
+      <% else%>
+      <tr class="border-bottom">
+        <td><%= customer.id %></td>
+        <td><%= link_to (customer.first_name + customer.last_name) , admin_customer_path(customer.id) %></td>
+        <td><%= customer.email %></td>
+        <td><strong style="color:#3cb371;">有効</strong></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </table>
+  </div>
+  <div style="margin-top:50px; margin-left:42%; font-size:25px;">
+    <%= paginate @customers %>
+  </div>
+</div>
