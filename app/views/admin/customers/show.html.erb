@@ -2,72 +2,74 @@
   <div class="row justify-content-center">
     <div class="col-md-11 d-flex align-items-center"><b style="font-size:30px;">会員詳細</b></div>
   </div>
-  
-  <div class="row-2" style="margin-top:35px;">
-    <div class="col-md-6">
-      <div class="row" style="margin-top:30px">
-        <div class="col-2">
-          <span style="font-size:17px;">会員ID</span>
-        </div>
-        <div class="col-4">
-          <span style="font-size: 17px;"><%= @customer.id %></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row" style="margin-top:30px">
-        <div class="col-2">
-          <span style="font-size:17px;">氏名</span>
-        </div>
-        <div class="col-4">
-          <span style="font-size: 17px;"><%= @customer.first_name %><%= @customer.last_name %></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="row" style="margin-top:30px">
-        <div class="col-3">
-          <span style="font-size:17px;">メールアドレス</span>
-        </div>
-        <div class="col-6">
-          <span style="font-size: 17px;"><%= @customer.email %></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="row" style="margin-top:30px">
-        <div class="col-3">
-          <span style="font-size:17px;">ステータス</span>
-        </div>
-        <div class="col-6">
-          <span style="font-size: 17px;"><%= @customer.is_deleted%></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2" style="margin-left:190px;">
-      <%= link_to "編集する", edit_admin_customer_path(@customer),class:"btn btn-success text-light mr-5 mt-4 ",style:"width:100px;" %>
-    </div>
-  </div>
 
-  <div class="row-2" style="margin-top:35px;">
+  <div class="row" style="margin-top:10px;">
     <div class="col-md-6">
+      <h3 class="row" style="margin-top:20px;">
+        <strong class="col-md-5">会員ID</strong>
+        <strong class="col-md-6" style="padding-left:20px;"><%= @customer.id %></strong>
+      </h3>
+
+      <h3 class="row" style="margin-top:20px;">
+        <strong class="col-md-5">氏名</strong>
+        <strong class="col-md-6"><%= @customer.first_name %><%= @customer.last_name %></strong>
+      </h3>
+
+      <h3 class="row" style="margin-top:20px;">
+        <strong class="col-md-5">メールアドレス</strong>
+        <strong class="col-md-6"><%= @customer.email %></strong>
+      </h3>
+
+       <h3 class="row" style="margin-top:20px;">
+        <strong class="col-md-5">ステータス</strong>
+        <% if @customer.is_deleted ==true %>
+          <strong class="col-md-6" style="color: #808080;">無効</strong>
+        <% else%>
+          <strong class="col-md-6" style="color:#3cb371;">有効</strong>
+        <% end %>
+      </h3>
+
+      <div class="row justify-content-center">
+        <%= link_to "編集する", edit_admin_customer_path(@customer),class:"btn btn-success text-light mr-5 mt-4 ",style:"width:100px;" %>
+      </div>
+    </div>
+
+    <div class="col-md-5">
       <table class="table" style="font-size:20px;">
         <tr　class="border-top">
-          <th bgcolor="#f5f5f5", style="width:60%" class="pl-3">タイトル</th>
-          <th bgcolor="#f5f5f5", style="width:20%" class="pl-3">コメント</th>
-          <th bgcolor="#f5f5f5", style="width:20%" class="pl-3">ﾌﾞｯｸﾏｰｸ</th>
+          <th bgcolor="#f5f5f5", style="width:50%" class="pl-3">タイトル</th>
+          <th bgcolor="#f5f5f5", style="width:25%" class="pl-1">コメント</th>
+          <th bgcolor="#f5f5f5", style="width:25%" class="pl-1">ﾌﾞｯｸﾏｰｸ</th>
         </tr>
         <% @recipes.each do |recipe| %>
         <tr class="border-bottom">
           <td><%= link_to recipe.title ,admin_recipe_path(recipe) %></td>
-          <td><%= recipe.comments.count %></td>
-          <td><%= recipe.bookmarks.count %></td>
+          <td><%= recipe.comments.count %>件</td>
+          <td><%= recipe.bookmarks.count %>件</td>
         </tr>
         <% end %>
       </table>
+
+      <div style="margin-top:10px; margin-left:30%; font-size:20px;">
+        <%= paginate @recipes %>
+      </div>
     </div>
-    <div style="margin-top:50px; margin-left:42%; font-size:20px;">
-      <%= paginate @recipes %>
-    </div>
-  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
