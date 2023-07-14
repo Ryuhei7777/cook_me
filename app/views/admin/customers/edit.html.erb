@@ -4,49 +4,35 @@
   </div>
 
   <%= form_with model: @customer, url:admin_customer_path(@customer), method: :patch  do |f|%>
-  <div class="row justify-content-center" style="margin-top:25px">
-    <h3 class="row">
-      <strong class="col-md-5">
-        <span >会員ID</span>
-      </strong>
-      <strong class="col-md-6">
-        <span ><%= @customer.id %></span>
-      </strong>
-    </h3>
-    
-    <h3 class="row">
-      <strong class="col-md-5">
-        <span >氏名</span>
-      </strong>
-      <strong class="col-md-7">
-        <span ><%= f.text_field :first_name,style:"width:200px; height:35px;"%><%= f.text_field :last_name,style:"width:200px; height:35px;"%></span>
-      </strong>
-    </h3>
-    
-    <h3 class="row">
-      <strong class="col-md-5">
-        <span >メールアドレス</span>
-      </strong>
-      <strong class="col-md-7">
-        <span><%= f.email_field :email, autofocus: true, autocomplete: "email",style:"width:200px; height:35px;"%></span>
-      </strong>
-    </h3>
-    
-    <h3 class="row">
-      <strong class="col-md-5">
-        <span >会員ステータス</span>
-      </strong>
-      <strong class="col-md-7">
-        <%= f.radio_button :is_deleted, "false",style:"font-size:20px;" %>
-        <%= f.label :is_deleted, "有効",class:"mr-3" ,style:"font-size:17px;" %>
-        <%= f.radio_button :is_deleted, "true" %>
-        <%= f.label :is_deleted, "退会" ,style:"font-size:17px;" %>
-      <strong>
-    </h3>
+  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px; font-size:30px;">
+    <div class="col-md-3" style="margin:auto 0;"><strong>会員ID</strong></div>
+    <div class="col-md-6" style="padding-left:0px;"><strong><%= @customer.id %></strong></div>
+  </div>
 
-    <div class="row" style="margin-top:30px;">
-      <%= f.submit "変更を保存する",class:"btn btn-success text-center ",style:"width:170px; height:50px; font-size:20px;" %>
+  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px; font-size:30px;">
+    <div class="col-md-3" style="margin:auto 0;"><strong>氏名</strong></div>
+    <div class="col-md-6" style="padding-left:0px;"><strong><span><%= f.text_field :first_name,style:"width:190px; height:45px;"%></span><span style="margin-left:10px;"><%= f.text_field :last_name,style:"width:190px; height:45px;"%></span></strong></div>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px; font-size:30px;">
+    <div class="col-md-3" style="margin:auto 0;"><strong>メールアドレス</strong></div>
+    <div class="col-md-6" style="padding-left:0px;"><strong><%= f.email_field :email, autofocus: true, autocomplete: "email",style:"width:500px; height:45px;"%></strong></div>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top:30px; margin-left:30px; font-size:30px;">
+    <div class="col-md-3" style="margin:auto 0;"><strong>会員ステータス</strong></div>
+    <div class="col-md-6" style="padding-left:0px; font-size:30px;">
+      <strong>
+        <%= f.radio_button :is_deleted, "false" %>
+        <%= f.label :is_deleted, "有効",class:"mr-3" ,style:"color:#3cb371;" %>
+        <%= f.radio_button :is_deleted, "true"%>
+        <%= f.label :is_deleted, "退会" ,style:"color: #808080;" %>
+      </strong>
     </div>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top:30px;">
+    <%= f.submit "変更を保存する",class:"btn btn-success text-center ",style:"width:170px; height:50px; font-size:20px;" %>
   </div>
   <% end %>
 </div>
