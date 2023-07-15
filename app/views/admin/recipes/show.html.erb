@@ -50,13 +50,13 @@
 　   </div>
   </div>
 
-  <div class="row justify-content-center" style="margin-top:20px; margin-left:5px;">
-    <div class="col-md-6" style="font-size:27px;"><b>作り方</b></div>
-    <div class="col-md-4" style="font-size:20px;"><b style="font-size:27px;">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b><b style="padding-left:127px;">投稿者</b></div>
+  <div class="row justify-content-center" style="margin-top:20px;">
+    <div class="col-md-5" style="font-size:27px;"><b>作り方</b></div>
+    <div class="col-md-5" style="font-size:20px; padding-left:50px;"><b style="font-size:27px;">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b><b style="padding-left:127px;">投稿者</b></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:20px; margin-left:90px;">
-    <div class="col-md-6" style="font-size:20px;">
+    <div class="col-md-5" style="font-size:20px;">
       <% @recipe.steps.each do |step|%>
         <div style="font-size:22px;">
           <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px;"><%= step.content %></span>
@@ -64,11 +64,12 @@
       <% end %>
     </div>
 
-    <div class="col-md-6" style="font-size:20px; padding-left:40px;">
+    <div class="col-md-7" style="font-size:20px; padding-left:80px;">
       <% @comments.each do |comment|%>
       <div style="font-size:22px;">
-        <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
+        <span style="display: inline-block; width: 280px; text-align: left; margin-top:5px;"><%= comment.content %></span>
         <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
+        <span><%= link_to "削除",admin_comment_path(comment),method: :delete,class:"btn btn-danger text-light",style:"width:60px; height:35px;" ,"data-confirm" => "本当に削除しますか？" %></span>
       </div>
       <% end %>
       <div style="margin-top:20px; margin-left:25%; font-size:25px;">

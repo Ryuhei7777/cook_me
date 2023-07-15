@@ -4,4 +4,5 @@ class Admin::RecipesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(recipe_id: @recipe).page(params[:page]).per(5)
   end
+  
 end

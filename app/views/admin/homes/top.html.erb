@@ -5,21 +5,19 @@
 
   <div class="row justify-content-start">
     <% @recipes.each do |recipe| %>
-    <div class="col-md-3" style="margin-top:20px;">
-      <div class="card shadow-lg recipe-card">
-        <%= link_to recipe_path(recipe.id) do %>
-          <%= image_tag recipe.image,class:"card-img-top"; %>
-        <% end %>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-              <p class="card-title" style="font-size:25px;">
-                <strong><span><%= recipe.title %></span></strong>
-              </p>
-              <span><i class="fas fa-user"></i> By <%= recipe.customer.first_name %><%= recipe.customer.last_name %> </span></br>
-              <span><%= recipe.comments.count %>コメント</span>
-              <span><%= recipe.bookmarks.count %>ブックマーク</span>
-            </div>
+    <div class="card col-md-12" style="width: 600px; height:300px; margin-top:10px;">
+      <div class="row g-0">
+        <div class="col-md-5" style="padding-left:0px;">
+          <%= link_to recipe_path(recipe.id) do %>
+            <%= image_tag recipe.image, width: "450", height: "300", class:"card-img-top;" %>
+          <% end %>
+        </div>
+        <div class="col-md-5">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size:35px;"><strong><span><%= recipe.title %></span></strong></h5>
+            <span style="font-size:1.5em;"><i class="fas fa-user"></i> By <%= recipe.customer.first_name %><%= recipe.customer.last_name %> </span></br>
+            <span style="font-size:1.5em;"><%= recipe.comments.count %>コメント</span>
+            <span style="font-size:1.5em;"><%= recipe.bookmarks.count %>ブックマーク</span>
           </div>
         </div>
       </div>

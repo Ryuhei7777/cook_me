@@ -2,8 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-md-10 d-flex align-items-center"><b style="font-size:25px;">レシピ一覧</b></div>
     <div class="col-md-2"><span style="font-size:60px;">
-      <%= link_to new_recipe_path do %>
-        <i class="fas fa-plus-circle" style="color: #a9acb2;"></i></span>
+      <% if customer_signed_in? %>
+        <%= link_to new_recipe_path do %>
+          <i class="fas fa-plus-circle" style="color: #a9acb2;"></i></span>
+        <% end %>
+      <% else %>
       <% end %>
     </div>
   </div>
@@ -12,9 +15,16 @@
     <% @recipe.each do |recipe| %>
     <div class="col-md-3" style="margin-top:20px;">
       <div class="card shadow-lg recipe-card">
-        <%= link_to recipe_path(recipe.id) do %>
-          <%= image_tag recipe.image,class:"card-img-top"; %>
+        <% if customer_signed_in? %>
+          <%= link_to recipe_path(recipe.id) do %>
+            <%= image_tag recipe.image,class:"card-img-top"; %>
+          <% end %>
+        <% else %>
+          <%= link_to new_customer_session_path do %>
+            <%= image_tag recipe.image,class:"card-img-top"; %>
+          <% end %>
         <% end %>
+        
         <div class="card-body">
           <div class="row">
             <div class="col-12">

@@ -11,6 +11,7 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
     @recipe.save
+    redirect_to recipes_path
   end
 
   def show

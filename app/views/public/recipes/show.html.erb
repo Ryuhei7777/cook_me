@@ -10,7 +10,10 @@
     </div>
     <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:23px;"><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
     <div class="col-md-3 text-right" >
-      <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;"%>
+      <% if @recipe.customer_id == current_customer.id %>
+        <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;"%>
+      <% else %>
+      <% end %>
     </div>
   </div>
 
@@ -66,10 +69,13 @@
 
     <div class="col-md-6" style="font-size:20px; padding-left:40px;">
       <div>
-        <%= form_with model: @comment do |f| %>
-          <%= f.text_field :content,style:"width:330px; height:40px;" %>
-          <%= f.submit "投稿",class:"btn btn-success text-light",style:"width:70px; height:40px;" %>
-          <%= f.hidden_field :recipe_id, :value =>  @recipe.id %>
+        <% if  customer_signed_in? %>
+          <%= form_with model: @comment do |f| %>
+            <%= f.text_field :content,style:"width:330px; height:40px;" %>
+            <%= f.submit "投稿",class:"btn btn-success text-light",style:"width:70px; height:40px;" %>
+            <%= f.hidden_field :recipe_id, :value =>  @recipe.id %>
+          <% end %>
+        <% else %>
         <% end %>
       </div>
 
