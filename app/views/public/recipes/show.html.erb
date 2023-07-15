@@ -1,6 +1,6 @@
 <div class ="container">
   <div class="row justify-content-center">
-    <div class="col-md-10"><b style="font-size:25px;">レシピ詳細</b></div>
+    <div class="col-md-10"><b style="font-size:30px;">レシピ詳細</b></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:20px;">
@@ -8,10 +8,10 @@
       <div style="font-size:30px; text-align: center;"><b><%= @recipe.title %></b></div>
       <div style="text-align: end;"><b>by <%= @recipe.customer.first_name %> <%= @recipe.customer.last_name %></b></div>
     </div>
-    <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:23px;"><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
+    <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:25px;"><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
     <div class="col-md-3 text-right" >
       <% if @recipe.customer_id == current_customer.id %>
-        <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:100px; height:40px;"%>
+        <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:120px; height:45px; font-size:20px;"%>
       <% else %>
       <% end %>
     </div>
@@ -69,13 +69,14 @@
 
     <div class="col-md-6" style="font-size:20px; padding-left:40px;">
       <div>
-        <% if  customer_signed_in? %>
+        <% if @recipe.customer_id == current_customer.id %>
+        <% else %>
           <%= form_with model: @comment do |f| %>
             <%= f.text_field :content,style:"width:330px; height:40px;" %>
-            <%= f.submit "投稿",class:"btn btn-success text-light",style:"width:70px; height:40px;" %>
+            <%= f.submit "投稿",class:"btn btn-success text-light",style:"width:80px; height:42px; font-size:20px;" %>
             <%= f.hidden_field :recipe_id, :value =>  @recipe.id %>
           <% end %>
-        <% else %>
+          
         <% end %>
       </div>
 

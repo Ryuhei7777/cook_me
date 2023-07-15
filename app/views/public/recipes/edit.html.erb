@@ -1,12 +1,12 @@
 <div class ="container">
   <div class="row justify-content-center">
-    <div class="col-md-8"><b style="font-size:25px;">レシピ編集</b></div>
+    <div class="col-md-8"><b style="font-size:30px;">レシピ編集</b></div>
   </div>
 
   <%= form_with model: @recipe do |f| %>
     <div class="row justify-content-center" style="margin-top:20px;">
-      <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px;" %></div>
-  　   <div class="col-md-5" style="padding-left:5px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px;" %><b> 人前</b></div>
+      <div class="col-md-3" style="padding-left:0px;"><%= f.text_field :title,placeholder:"タイトル記入　17文字以内",style:"width:280px; height:40px; font-size:20px;" %></div>
+  　   <div class="col-md-5" style="padding-left:5px; font-size:20px; "> <%= f.text_field :quantity,placeholder:"5",style:"width:50px; height:40px; font-size:20px;" %><b> 人前</b></div>
   　   <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
 
@@ -17,7 +17,7 @@
           <%= f.file_field :image, style: 'display:none' %>
         <% end %>
       </div>
-　    <div class="col-md-5 d-flex align-items-end" style="padding-left:0px; margin-left:0px; font-size:23px;"><b>材料リスト</b></div>
+　    <div class="col-md-5 d-flex align-items-end" style="padding-left:0px; margin-left:0px; font-size:25px;"><b>材料リスト</b></div>
 　    <div class="col-md-4" style="padding-left:20px;"></div>
     </div>
 
@@ -33,7 +33,7 @@
             <%= render 'material_fields', :f => material %>
           <% end %>
           <div class='row justify-content-center' style="margin-top:20px;">
-            <%= link_to_add_association "材料の追加", f, :materials ,class:"btn btn-success text-light",style:"width:170px; height:40px; background: orange; border: 0px solid orange;"%>
+            <%= link_to_add_association "材料の追加", f, :materials ,class:"btn btn-success text-light",style:"width:170px; height:45px; font-size:20px; background: orange; border: 0px solid orange;"%>
           </div>
         </div>
 　    </div>
@@ -44,7 +44,7 @@
             <%= render 'seasoning_fields', :f => seasoning %>
           <% end %>
           <div class='row justify-content-center' style="margin-top:20px;">
-            <%= link_to_add_association "調味料の追加", f, :seasonings ,class:"btn btn-success text-light",style:"width:170px; height:40px; background: orange; border: 0px solid orange;"%>
+            <%= link_to_add_association "調味料の追加", f, :seasonings ,class:"btn btn-success text-light",style:"width:170px; height:45px; font-size:20px; background: orange; border: 0px solid orange;"%>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
             <%= render 'step_fields', :f => step %>
           <% end %>
           <div class='row justify-content-start' style="margin-top:20px;">
-            <%= link_to_add_association "手順の追加", f, :steps ,class:"btn btn-success text-light",style:"width:170px; height:40px; margin-left:30px; background: orange; border: 0px solid orange;"%>
+            <%= link_to_add_association "手順の追加", f, :steps ,class:"btn btn-success text-light",style:"width:170px; height:45px; font-size:20px; margin-left:30px; background: orange; border: 0px solid orange;"%>
           </div>
         </div>
 　    </div>
@@ -75,7 +75,7 @@
             <%= render 'tag_fields', :f => tag %>
           <% end %>
           <div class='row justify-content-start' style="margin-top:20px;">
-            <%= link_to_add_association "タグの追加", f, :tags ,class:"btn btn-success text-light",style:"width:170px; height:40px; background: orange; border: 0px solid orange; "%>
+            <%= link_to_add_association "タグの追加", f, :tags ,class:"btn btn-success text-light",style:"width:170px; height:45px; font-size:20px; background: orange; border: 0px solid orange; "%>
           </div>
         </div>
 　    </div>
@@ -83,8 +83,8 @@
 
     <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
 
-      <%= f.submit "レシピ編集",class:"btn btn-success text-light",style:"width:150px; height:40px; margin-right:40px;"%>
-      <%= link_to "削除する", recipe_path, method: :delete,class:"btn btn-danger text-light",style:"width:150px; height:40px;" ,"data-confirm" => "本当に削除しますか？" %>
+      <%= f.submit "レシピ編集",class:"btn btn-success text-light",style:"width:170px; height:45px; margin-right:40px; font-size:20px;"%>
+      <%= link_to "削除する", recipe_path, method: :delete,class:"btn btn-danger text-light",style:"width:170px; height:45px; font-size:20px;" ,"data-confirm" => "本当に削除しますか？" %>
     </div>
   <% end %>
 </div>

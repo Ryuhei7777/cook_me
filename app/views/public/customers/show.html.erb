@@ -1,34 +1,34 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8"><b style="font-size:25px;">マイページ</b></div>
+    <div class="col-md-8"><b style="font-size:30px;">マイページ</b></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:30px;">
-    <div class="col-md-2" style="margin:auto 0; font-size:22px;"><strong>氏名 (姓名)</strong></div>
-    <div class="col-md-2" style="padding-left:0px; font-size:22px;"><strong><%= @customer.first_name %><span style="margin-left:10px;"><%= @customer.last_name %></strong></span></div>
+    <div class="col-md-3" style="margin:auto 0; font-size:30px;"><strong>氏名 (姓名)</strong></div>
+    <div class="col-md-3" style="padding-left:0px; font-size:30px;"><strong><%= @customer.first_name %><span style="margin-left:10px;"><%= @customer.last_name %></strong></span></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:30px;">
-    <div class="col-md-2" style="margin:auto 0; font-size:22px;"><strong>メールアドレス</strong></div>
-    <div class="col-md-2" style="padding-left:0px; font-size:22px;"><strong><%= @customer.email %></strong></div>
+    <div class="col-md-3" style="margin:auto 0; font-size:30px;"><strong>メールアドレス</strong></div>
+    <div class="col-md-3" style="padding-left:0px; font-size:30px;"><strong><%= @customer.email %></strong></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:30px;">
-    <div class="col-md-2" style="margin:auto 0; font-size:22px;"><strong>ステータス</strong></div>
-    <div class="col-md-1" style="margin:auto 0; padding-left:0px; font-size:19px;">
+    <div class="col-md-3" style="margin:auto 0; font-size:30px;"><strong>ステータス</strong></div>
+    <div class="col-md-2" style="margin:auto 0; padding-left:0px; font-size:30px;">
       <% if @customer.is_deleted == true %>
-        <strong style="color: #808080; font-size: 22px;">無効</strong>
+        <strong style="color: #808080;">無効</strong>
       <% else %>
-        <strong style="color:#3cb371; font-size: 22px;">有効</strong>
+        <strong style="color:#3cb371;">有効</strong>
       <% end %>
     </div>
     <div class="col-md-1" style="padding-left:0px; padding-left:80px;">
-      <%= link_to "編集する",edit_customers_path,class:"btn btn-success text-light",style:"width:110px; height:40px;" %>
+      <%= link_to "編集する",edit_customers_path,class:"btn btn-success text-light",style:"width:130px; height:45px; font-size:20px;" %>
     </div>
   </div>
   
   <div class="row justify-content-center" style="margin-top:50px;">
-    <div class="col-md-10"><b style="font-size:25px;">新着情報</b></div>
+    <div class="col-md-10"><b style="font-size:30px;">新着情報</b></div>
   </div>
   
   <div class="row justify-content-start">

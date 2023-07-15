@@ -94,8 +94,8 @@
             <li class="mr-4">
               <%= search_form_for @search, url: admin_searches_path do |f| %>
               <div class="d-flex justify-content-end">
-                <%= f.search_field :title_or_tags_name_cont, class: 'form-control mr-2', placeholder: '検索ワード', style:"border: 2px solid #000000; width: 400px;"%>
-                <%= f.submit '検索', class: 'btn btn-primary' %>
+                <%= f.search_field :title_or_tags_name_cont, class: 'form-control mr-2', placeholder: '検索ワード', style:"border: 2px solid #000000; width: 400px; height:45px; font-size:20px;"%>
+                <%= f.submit '検索', class: 'btn btn-primary text-light' ,style:"width:80px; height:45px; font-size:20px;" %>
               </div>
               <% end %>
             </li>
@@ -105,8 +105,8 @@
             <li class="mr-4">
               <%= search_form_for @search, url: searches_path do |f| %>
               <div class="d-flex justify-content-end">
-                <%= f.search_field :title_or_tags_name_cont, class: 'form-control mr-2', placeholder: '検索ワード', style:"border: 2px solid #000000; width: 400px;"%>
-                <%= f.submit '検索', class: 'btn btn-primary' %>
+                <%= f.search_field :title_or_tags_name_cont, class: 'form-control mr-2', placeholder: '検索ワード', style:"border: 2px solid #000000; width: 400px; height:45px; font-size:20px;"%>
+                <%= f.submit '検索', class: 'btn btn-primary text-light' ,style:"width:80px; height:45px; font-size:20px;"%>
               </div>
               <% end %>
             </li>

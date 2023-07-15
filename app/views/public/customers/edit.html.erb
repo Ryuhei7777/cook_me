@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-6"><b style="font-size:19px;">会員編集</b></div>
+    <div class="col-md-8"><b style="font-size:30px;">会員編集</b></div>
   </div>
   <%= form_with model: @customer, url:customers_path, method: :patch do |f| %>
   <div class="row justify-content-center" style="margin-top:30px; margin-left:30px;">
-    <div class="col-md-2" style="margin:auto 0; font-size:19px;">氏名 (姓名)</div>
-    <div class="col-md-2" style="padding-left:0px;"><%= f.text_field :first_name,style:"width:170px; height:40px;"%></div>
-    <div class="col-md-2" style="padding-left:20px;"><%= f.text_field :last_name,style:"width:170px; height:40px;" %></div>
+    <div class="col-md-3" style="margin:auto 0; font-size:30px;"><strong>氏名 (姓名)</strong></div>
+    <div class="col-md-2" style="padding-left:0px; font-size:25px;"><%= f.text_field :first_name,style:"width:170px; height:40px;"%></div>
+    <div class="col-md-2" style="padding-left:20px; font-size:25px;"><%= f.text_field :last_name,style:"width:170px; height:40px;" %></div>
   </div>
   
   <div class="row justify-content-center" style="margin-top:40px; margin-left:30px;">
-    <div class="col-md-2" style="margin:auto 0; font-size:19px;"><%= f.label :メールアドレス %></div>
-    <div class="col-md-4" style="padding-left:0px;"><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"sample@example.com",style:"width:375px; height:40px;" %></div>
+    <div class="col-md-3" style="margin:auto 0; font-size:30px;"><strong><%= f.label :メールアドレス %></strong></div>
+    <div class="col-md-4" style="padding-left:0px; font-size:25px;"><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"sample@example.com",style:"width:375px; height:40px;" %></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:50px; margin-left:30px;">
     <div class="col-md-2" style="padding-left:0px;">
-      <%= f.submit "変更を保存する",class:"btn btn-success text-light",style:"width:140px; height:40px;" %>
+      <%= f.submit "変更を保存する",class:"btn btn-success text-light",style:"width:170px; height:45px; font-size:20px;" %>
     </div>
     <div class="col-md-2" style="padding-left:10px;">
-      <%= link_to "退会する",withdraw_check_path,class:"btn btn-danger text-light",style:"width:130px; height:40px;" %>
+      <%= link_to "退会する",withdraw_check_path,class:"btn btn-danger text-light",style:"width:150px; height:45px; font-size:20px;" %>
   </div>
   <% end %>

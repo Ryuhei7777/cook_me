@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-11 d-flex align-items-center"><span style="font-size:30px;"><%= (@customer.first_name + @customer.last_name) %>さんの会員詳細</span></div>
+    <div class="col-md-11 d-flex align-items-center"><strong style="font-size:30px;"><%= (@customer.first_name + @customer.last_name) %>さんの会員詳細</strong></div>
   </div>
 
   <%= form_with model: @customer, url:admin_customer_path(@customer), method: :patch  do |f|%>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="row justify-content-center" style="margin-top:30px;">
-    <%= f.submit "変更を保存する",class:"btn btn-success text-center ",style:"width:170px; height:50px; font-size:20px;" %>
+    <%= f.submit "変更を保存する",class:"btn btn-success text-center ",style:"width:190px; height:45px; font-size:20px;" %>
   </div>
   <% end %>
 </div>
