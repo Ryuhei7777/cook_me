@@ -8,7 +8,7 @@
       <div style="font-size:30px; text-align: center;"><b><%= @recipe.title %></b></div>
       <div style="text-align: end;"><b>by <%= @recipe.customer.first_name %> <%= @recipe.customer.last_name %></b></div>
     </div>
-    <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:25px;"><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
+    <div class="col-md-4 d-flex align-items-end" style="padding-left:20px; margin-left:0px; font-size:25px; "><b>材料リスト(<%= @recipe.quantity%>人分)</b></div>
     <div class="col-md-3 text-right" >
       <% if @recipe.customer_id == current_customer.id %>
         <%= link_to "編集する",edit_recipe_path(@recipe),class:"btn btn-success text-light",style:"width:120px; height:45px; font-size:20px;"%>
@@ -34,20 +34,20 @@
       </div>
     </div>
 
-    <div class="col-md-4" style="padding-left:20px;">
+    <div class="col-md-4" style="padding-left:20px; padding-right:0px;">
       <% @recipe.materials.each do |material|%>
         <div style="font-size:23px;">
-          <span style="display: inline-block; width: 210px;"><%= material.name %></span>
-          <span style="display: inline-block; width: 120px;"><%= material.quantity %></span>
+          <span style="display: inline-block; width: 210px; border-bottom-style: solid; border-color: #696969;"><%= material.name %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= material.quantity %></span>
         </div>
       <% end %>
     </div>
 
-　   <div class="col-md-3" style="padding-left:20px;">
+　   <div class="col-md-3" style="padding-left:10px; padding-right:0px;">
 　     <% @recipe.seasonings.each do |seasoning|%>
         <div style="font-size:23px;">
-          <span style="display: inline-block; width: 120px;"><%= seasoning.name %></span>
-          <span style="display: inline-block; width: 120px;"><%= seasoning.quantity %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= seasoning.name %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= seasoning.quantity %></span>
         </div>
       <% end %>
 　   </div>
@@ -55,14 +55,14 @@
 
   <div class="row justify-content-center" style="margin-top:20px; margin-left:5px;">
     <div class="col-md-6" style="font-size:27px;"><b>作り方</b></div>
-    <div class="col-md-4" style="font-size:20px;"><b style="font-size:27px;">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b></div>
+    <div class="col-md-4" style="font-size:20px;"><b style="font-size:27px; ">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b></div>
   </div>
 
   <div class="row justify-content-center" style="margin-top:20px; margin-left:90px;">
     <div class="col-md-6" style="font-size:20px;">
       <% @recipe.steps.each do |step|%>
         <div style="font-size:22px;">
-          <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px;"><%= step.content %></span>
+          <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px; border-bottom-style: solid; border-color: #696969;"><%= step.content %></span>
         </div>
       <% end %>
     </div>
@@ -82,8 +82,8 @@
 
       <% @comments.each do |comment|%>
       <div style="font-size:22px;">
-        <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px;"><%= comment.content %></span>
-        <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
+        <span style="display: inline-block; width: 300px; text-align: left; margin-top:5px; border-bottom-style: solid; border-color: #696969;"><%= comment.content %></span>
+        <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px; border-bottom-style: solid; border-color: #696969;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
       </div>
       <% end %>
       <div style="margin-top:20px; margin-left:25%; font-size:25px;">
