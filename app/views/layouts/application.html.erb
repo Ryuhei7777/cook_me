@@ -19,7 +19,7 @@
           <%= link_to admin_root_path ,class:"navbar-brand" do %>
             <%= image_tag 'image1.jpg', size: "200x200" %>
           <% end %>
-        <% else customer_signed_in? %>
+        <% elsif customer_signed_in? %>
           <%= link_to root_path ,class:"navbar-brand" do %>
             <%= image_tag 'image1.jpg', size: "200x200" %>
           <% end %>
