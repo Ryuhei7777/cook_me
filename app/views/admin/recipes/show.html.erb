@@ -34,8 +34,8 @@
     <div class="col-md-4" style="padding-left:20px;">
       <% @recipe.materials.each do |material|%>
         <div style="font-size:23px;">
-          <span style="display: inline-block; width: 210px;"><%= material.name %></span>
-          <span style="display: inline-block; width: 120px;"><%= material.quantity %></span>
+          <span style="display: inline-block; width: 210px; border-bottom-style: solid; border-color: #696969;"><%= material.name %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= material.quantity %></span>
         </div>
       <% end %>
     </div>
@@ -43,8 +43,8 @@
 　   <div class="col-md-3" style="padding-left:20px;">
 　     <% @recipe.seasonings.each do |seasoning|%>
         <div style="font-size:23px;">
-          <span style="display: inline-block; width: 120px;"><%= seasoning.name %></span>
-          <span style="display: inline-block; width: 120px;"><%= seasoning.quantity %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= seasoning.name %></span>
+          <span style="display: inline-block; width: 120px; border-bottom-style: solid; border-color: #696969;"><%= seasoning.quantity %></span>
         </div>
       <% end %>
 　   </div>
@@ -55,20 +55,20 @@
     <div class="col-md-5" style="font-size:20px; padding-left:50px;"><b style="font-size:27px;">コメント</b><b style="margin-left:15px;"><%= @recipe.comments.count%>件</b><b style="padding-left:127px;">投稿者</b></div>
   </div>
 
-  <div class="row justify-content-center" style="margin-top:20px; margin-left:90px;">
+  <div class="row justify-content-center" style="margin-top:20px; margin-left:80px;">
     <div class="col-md-5" style="font-size:20px;">
       <% @recipe.steps.each do |step|%>
         <div style="font-size:22px;">
-          <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px;"><%= step.content %></span>
+          <span style="display: inline-block; width: 500px; text-align: left; margin-top:5px; border-bottom-style: solid; border-color: #696969;"><%= step.content %></span>
         </div>
       <% end %>
     </div>
 
-    <div class="col-md-7" style="font-size:20px; padding-left:80px;">
+    <div class="col-md-7" style="font-size:20px; padding-left:91px;">
       <% @comments.each do |comment|%>
       <div style="font-size:22px;">
-        <span style="display: inline-block; width: 280px; text-align: left; margin-top:5px;"><%= comment.content %></span>
-        <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
+        <span style="display: inline-block; width: 280px; text-align: left; margin-top:5px; border-bottom-style: solid; border-color: #696969;"><%= comment.content %></span>
+        <span style="display: inline-block; width: 150px; margin-top:5px; font-size:20px; border-bottom-style: solid; border-color: #696969;"><%= comment.customer.first_name %><%= comment.customer.last_name %></span>
         <span><%= link_to "削除",admin_comment_path(comment),method: :delete,class:"btn btn-danger text-light",style:"width:60px; height:35px;" ,"data-confirm" => "本当に削除しますか？" %></span>
       </div>
       <% end %>
