@@ -17,9 +17,9 @@ class Recipe < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["title"]
   end
-
+  
   def self.ransackable_associations(auth_object = nil)
     ["tags"]
   end
-
+  
 end
